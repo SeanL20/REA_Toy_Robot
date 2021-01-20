@@ -53,6 +53,55 @@ class InputCmdTest < Minitest::Test
   	assert_equal "NORTH", @board.find_robot("TEST").facing
   end
 
+  # Test if the place_robot would create a new instance of robot class
+  def test_double_place_robot_instance
+
+    @input_cmd.place_robot("TEST", "PLACE 0,0,NORTH")
+
+    @input_cmd.place_robot("TEST", "PLACE 1,1,EAST")
+
+    assert_instance_of Robot, @board.find_robot("TEST")
+  end
+
+  # Test if the place_robot would create a new instance of robot class with the correct name
+  def test_double_place_robot_name
+
+    @input_cmd.place_robot("TEST", "PLACE 0,0,NORTH")
+
+    @input_cmd.place_robot("TEST", "PLACE 1,1,EAST")
+
+    assert_equal "TEST", @board.find_robot("TEST").robot_name
+  end
+
+  # Test if the place_robot would create a new instance of robot class with the correct x_position
+  def test_double_place_robot_x_position
+
+    @input_cmd.place_robot("TEST", "PLACE 0,0,NORTH")
+
+    @input_cmd.place_robot("TEST", "PLACE 1,1,EAST")
+
+    assert_equal "1", @board.find_robot("TEST").x_position
+  end
+
+  # Test if the place_robot would create a new instance of robot class with the correct y_position
+  def test_double_place_robot_y_position
+
+    @input_cmd.place_robot("TEST", "PLACE 0,0,NORTH")
+
+    @input_cmd.place_robot("TEST", "PLACE 1,1,EAST")
+
+    assert_equal "1", @board.find_robot("TEST").y_position
+  end
+
+  # Test if the place_robot would create a new instance of robot class with the correct facing
+  def test_double_place_robot_facing
+    @input_cmd.place_robot("TEST", "PLACE 0,0,NORTH")
+
+    @input_cmd.place_robot("TEST", "PLACE 1,1,EAST")
+
+    assert_equal "EAST", @board.find_robot("TEST").facing
+  end
+
   def test_turn_left_without_place
   	@input_cmd.turn_left("TEST")
   	assert_empty @board.find_robot("TEST")
