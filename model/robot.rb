@@ -15,7 +15,7 @@ class Robot
 
 	# Get the boolean if the robot in the position that it would hit the north border if it moves in the y axis.
 	def y_hit_north_border?
-		@y_position == 6
+		@y_position == 4
 	end
 
 	# Get the boolean if the robot in the position that it would hit the south border if it moves in the y axis.
@@ -23,33 +23,13 @@ class Robot
 		@y_position == 0
 	end
 
-	# Get the boolean if the robot would move to the north edge (y coord of 6) if it moves in the y axis.
-	def y_move_to_north_edge?
-		(y_position + 1) >= 6
-	end
-
-	# Get the boolean if the robot would move to the south edge (y coord of 0) if it moves in the y axis.
-	def y_move_to_south_edge?
-		(y_position - 1) <= 0
-	end
-
 	# Get the boolean if the robot in the position that it would hit the east border if it moves in the x axis.
 	def x_hit_east_border?
-		x_position == 6
+		x_position == 4
 	end
 
 	# Get the boolean if the robot in the position that it would hit the west border if it moves in the x axis.
 	def x_hit_west_border?
 		x_position == 0
-	end
-
-	# Get the boolean if the robot would move to the east edge (x coord of 6) if it moves in the x axis.
-	def x_move_to_east_edge?
-		(x_position + 1) >= 6
-	end
-
-	# Get the boolean if the robot would move to the west edge (x coord of 0) if it moves in the x axis.
-	def x_move_to_west_edge?
-		(x_position - 1) <= 0
 	end
 end
