@@ -1,28 +1,19 @@
 require "minitest/autorun"
-require_relative "../model/board"
+require_relative "../model/robot"
 
 class RobotTest < Minitest::Test
 
   def setup
-  	board = Board.new
-
     @robot = Robot.new(
-			robot_name: "TEST", 
 			x_position: 0, 
 			y_position: 0, 
-			facing: "NORTH", 
-			board: board
+			facing: "NORTH"
 		)
   end
 
   # Test if robot is an instance of the robot class
   def test_robot_instance
   	assert_instance_of Robot, @robot
-  end
-
-  # Test the storing of robot_name
-  def test_robot_name
-    assert_equal "TEST", @robot.robot_name
   end
 
   # Test the storing of x_position
