@@ -50,16 +50,6 @@ class RobotTest < Minitest::Test
     assert_equal true, @robot.y_hit_south_border?
   end
 
-  # Test the functionality of the move north edge
- 	def test_robot_move_north_edge
-    assert_equal false, @robot.y_move_to_north_edge?
-  end
-
-  # Test the functionality of the move south edge
- 	def test_robot_move_south_edge
-    assert_equal true, @robot.y_move_to_south_edge?
-  end
-
   # Test the functionality of the hit west border
  	def test_robot_hit_west_border
     assert_equal true, @robot.x_hit_west_border?
@@ -68,16 +58,6 @@ class RobotTest < Minitest::Test
   # Test the functionality of the hit east border
  	def test_robot_hit_east_border
     assert_equal false, @robot.x_hit_east_border?
-  end
-
-  # Test the functionality of the move west edge
- 	def test_robot_move_west_edge
-    assert_equal true, @robot.x_move_to_west_edge?
-  end
-
-  # Test the functionality of the move east edge
- 	def test_robot_move_east_edge
-    assert_equal false, @robot.x_move_to_east_edge?
   end
 
 end
