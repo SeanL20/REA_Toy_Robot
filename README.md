@@ -2,7 +2,7 @@
 This repository is for the coding assessment for REA.
 
 # Creation Process
-There will be 3 model classes:
+There will be 2 model classes:
 - The robot class is to create robot classes and have checks for the robot if it would hit the border.
 - The input command class contain functionality for the input file that would place, turn and move the robot as well as reports the robot position.
 
