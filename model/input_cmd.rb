@@ -33,17 +33,25 @@ class InputCmd
 
 	# Place the robot with the command for the coordinates and facing.
 	def place_robot(robot_name, command)
+		robot = board.find_robot(robot_name)
 		coord = command.split(" ")[1].split(",")
 		x_coord = coord[0]
 		y_coord = coord[1]
 		facing = coord[2]
-		Robot.new(
-			robot_name: robot_name, 
-			x_position: x_coord, 
-			y_position: y_coord, 
-			facing: facing, 
-			board: board
-		)
+
+		if robot == []
+			Robot.new(
+				robot_name: robot_name, 
+				x_position: x_coord, 
+				y_position: y_coord, 
+				facing: facing, 
+				board: board
+			)
+		else
+			robot.x_position = x_coord
+			robot.y_position = y_coord
+			robot.facing = facing
+		end
 	end
 
 	# Turns the robot left if there is robot with the name found
