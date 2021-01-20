@@ -36,13 +36,13 @@ class InputCmd
 		y_coord = coord[1]
 		facing = coord[2]
 
-		if @robot == ""
+		if @robot == "" && self.check_placement_postions_in_board(x_coord, y_coord)
 			@robot = Robot.new(
 				x_position: x_coord, 
 				y_position: y_coord, 
 				facing: facing
 			)
-		else
+		elsif @robot != "" && self.check_placement_postions_in_board(x_coord, y_coord)
 			@robot.x_position = x_coord
 			@robot.y_position = y_coord
 			@robot.facing = facing
@@ -109,6 +109,14 @@ class InputCmd
 		if @robot != ""
 			string = "#{robot.x_position},#{robot.y_position},#{robot.facing}"
 			return string
+		end
+	end
+
+	def check_placement_postions_in_board(x_position, y_position)
+		if x_position.to_i.between?(0,4) && y_position.to_i.between?(0,4)
+			return true
+		else
+			return false
 		end
 	end
 end
