@@ -88,19 +88,19 @@ class InputCmd
 		if robot != []
 			case robot.facing
 			when "NORTH"
-				if !robot.y_hit_north_border? && !robot.y_move_to_north_edge?
+				if !robot.y_hit_north_border?
 					robot.y_position = robot.y_position + 1
 				end
 			when "SOUTH"
-				if !robot.y_hit_south_border? && !robot.y_move_to_south_edge?
+				if !robot.y_hit_south_border?
 					robot.y_position = robot.y_position - 1
 				end
 			when "EAST"
-				if !robot.x_hit_east_border? && !robot.x_move_to_east_edge?
+				if !robot.x_hit_east_border?
 					robot.x_position = robot.x_position + 1
 				end
 			when "WEST"
-				if !robot.x_hit_west_border? && !robot.x_move_to_west_edge?
+				if !robot.x_hit_west_border?
 					robot.x_position = robot.x_position - 1
 				end
 			end
