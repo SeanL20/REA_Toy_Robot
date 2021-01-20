@@ -24,6 +24,7 @@ class InputCmd
 			when "MOVE"
 				self.move_robot
 			when "REPORT"
+				# Puts out the string for the position of the robot.
 				puts self.report_position
 			end
 		end
@@ -36,13 +37,17 @@ class InputCmd
 		y_coord = coord[1]
 		facing = coord[2]
 
+		# check if the robot is an empty string as well as if the x coordinates in the board.
 		if @robot == "" && self.check_placement_postions_in_board(x_coord, y_coord)
+			# Creates Robot instance if the check has been passed.
 			@robot = Robot.new(
 				x_position: x_coord, 
 				y_position: y_coord, 
 				facing: facing
 			)
+		# check if the robot is not an empty string as well as if the x coordinates in the board.
 		elsif @robot != "" && self.check_placement_postions_in_board(x_coord, y_coord)
+			# Update Robot positions and facing if the check has been passed.
 			@robot.x_position = x_coord
 			@robot.y_position = y_coord
 			@robot.facing = facing
@@ -105,6 +110,7 @@ class InputCmd
 		end
 	end
 
+	# Reports The Robot Position.
 	def report_position
 		if @robot != ""
 			string = "#{robot.x_position},#{robot.y_position},#{robot.facing}"
@@ -112,6 +118,7 @@ class InputCmd
 		end
 	end
 
+	# Checks if the x_position and y_position within coordinations of the board.
 	def check_placement_postions_in_board(x_position, y_position)
 		if x_position.to_i.between?(0,4) && y_position.to_i.between?(0,4)
 			return true
